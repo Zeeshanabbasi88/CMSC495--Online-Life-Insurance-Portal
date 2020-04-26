@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>login</title>
+</head>
+<body>
+
+<?PHP
+
+$LEmail=$_POST['LEmail'];
+$LPassword=$_POST['LPassword'];
+
+
+session_start();
+$_SESSION['REGISTER']=$LEmail;
+
+$connection=mysql_connect("localhost","root","");
+$dbselect=mysql_select_db("userregisteration",$connection);
+if($dbselect)
+{
+	echo "Database is connected";
+}
+else if(!$dbselect)
+{   echo "DB is not connected ";
+         echo "</br>";
+	
+	}
+$checked=0;
+$query= mysql_query("select * from approvedusers WHERE Email='$LEmail' and password='$LPassword'");
+$checked= mysql_num_rows($query);
+if($checked!=0)
+{
+header("location:home.php");
+
+}
+else
+{
+	
+	header("location:loginForm.php");
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+</body>
+</html>
