@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body style="margin:0px;">
+<div style="font-family:'Times New Roman', Times, serif; text-align:center; width:100%; font-size:24px;color:#00F; margin:0px; padding:0px;">
+<table border="0" align="center" width="100%" cellspacing="0px" >
+<tr> <td>   <?php include ('title.php'); ?>  </td> </tr>
+<tr> <td>   <?php include ('menu.php'); ?>  </td> </tr>
+<tr> <td>   <?php include ('slider.php'); ?>  </td> </tr>
+<tr height="600PX;"> <td>   
+<!--start working area  -->
+
+<h1><center>ELIGIBILITY</center></h1>
+
+<h3><center>WHO CAN PURCHASE AN OLIP POLICY?</center></h3>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;"> Anyone who is earning  income through a  legal job, is eligible. They can opt for OLIP policies.</p>
+
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is earning income through a public sector or private sector legal job, is eligible. both can opt for OLIP policies, without any difference.</p>
+ 
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who has purchased a policy can continue with the policy even after the job, untill he/she is capable of paying the pemium amount.</p>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is a resident of Pakistan can purchase the Policy.</p>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is 18 years of age on the current date can purchase a policy</p>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who has a national identitiy card can purchase a policy</p>
+ 
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who has not purchased an OLIP policy yet, can purchase a policy</p>
+ 
+<h3><center>WHO CAN NOT PURCHASE AN OLIP POLICY?</center></h3>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;"> Anyone who is not earning  income through a  legal job. They can not opt for OLIP policies.</p>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is not earning income are job less or still studying, they can not purchase a policy.</p>
+ 
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is not a resident of Pakistan can not purchase the Policy.</p>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is below 18 years of age on the current date can not purchase a policy</p>
+ 
+  <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is above 60 years of age on the current date can not purchase a policy</p>
+  
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who does not have a valid national identitiy card can not purchase a policy</p>
+
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who is a resident of Pakistan, but has dual nationality, can not purchase the Policy.</p>
+ 
+ <p style="margin-left:250px; margin-right:250px; color:#009; font-size:14px;">Anyone who has already purchased a policy, can not purchase the 2nd Policy.</p>
+
+
+
+<!--End working area  -->
+ </td> </tr>
+
+<tr> <td>   <?php include ('footer.php'); ?>  </td> </tr>
+
+
+
+
+
+</table>
+</div>
+</body>
+</html>
