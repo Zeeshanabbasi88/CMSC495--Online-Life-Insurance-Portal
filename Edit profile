@@ -1,0 +1,91 @@
+!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>edit profile</title>
+</head>
+
+<body>
+
+<?PHP
+session_start();
+ $Email=$_SESSION['REGISTER'];
+
+$path = "upload/";
+
+$name=$_FILES['uploadedfile']['name'];
+
+$file_type=$_FILES['uploadedfile']['type'];
+
+
+
+$aa = $path . basename( $_FILES['uploadedfile']['name']); 
+
+//if( $file_type=="image/gif" || $file_type=="image/jpeg"){
+
+     
+if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $aa)) { 
+    echo "The file has been uploaded";
+} else{
+    echo "There was an error uploading the file, please try again!";
+}
+
+
+
+ $Fname=$_POST['Fname'];
+ $Lname=$_POST['Lname'];
+ $NIC=$_POST['NIC'];
+  $mobileNumber=$_POST['mobileNumber'];
+ $Address=$_POST['Address'];
+ $city=$_POST['city'];
+ $occupation=$_POST['occupation'];
+ $DOB=$_POST['DOB'];
+ $Email=$_POST['Email'];
+ $password=$_POST['password'];
+ $gender=$_POST['gender'];
+ $status=$_POST['status'];
+ 
+ $userID=$_POST['userID'];
+
+$connection=mysql_connect("localhost","root","");
+$dbselect=mysql_select_db("userregisteration",$connection);
+if(!$dbselect)
+{   echo "DB is not connected ";
+	
+	}
+ $add=mysql_query("update register set Fname='$Fname', Lname='$Lname', NIC='$NIC', mobileNumber='$mobileNumber', Address='$Address', city='$city', occupation='$occupation', DOB='$DOB', Email='$Email', password='$password', gender='$gender', status='$status',picture='$name' where userID='$userID'");
+
+if(!$add)
+{  echo "sorry, there was some error";
+	}
+else{
+	$username = 'nabeelakram';
+$password = 'allahpak';
+$to = $mobileNumber;
+$from ='SMS Alert';
+$message = 'dear '.$Fname.' u have changed your profile details successfully..!!!!';
+$url = "http://lifetimesms.com/plain?username=".$username."&password=".$password.
+"&to=".$to."&from=".urlencode($from)."&message=".urlencode($message)." ";
+//Curl Start
+$ch  =  curl_init();
+$timeout  =  30;
+curl_setopt ($ch,CURLOPT_URL, $url) ;
+curl_setopt ($ch,CURLOPT_RETURNTRANSFER, 1);
+curl_setopt ($ch,CURLOPT_CONNECTTIMEOUT, $timeout) ;
+$response = curl_exec($ch) ;
+curl_close($ch) ; 
+//Write out the response
+echo $response ;
+
+	
+	header("location:home.php");
+	
+	
+	}
+
+
+
+?>
+
+</body>
+</html>
