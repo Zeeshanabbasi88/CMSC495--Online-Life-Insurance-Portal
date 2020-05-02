@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body style="margin:0px;">
+<div style="font-family:'Times New Roman', Times, serif; text-align:center; width:100%; font-size:24px;color:#00F; margin:0px; padding:0px;">
+<table border="0" align="center" width="100%" cellspacing="0px" >
+<tr> <td>   <?php include ('title.php'); ?>  </td> </tr>
+<tr> <td>   <?php include ('menu.php'); ?>  </td> </tr>
+<tr> <td>   <?php include ('slider.php'); ?>  </td> </tr>
+<tr height="600PX;"> <td>   
+<!--start working area  -->
+
+
+
+ 
+<h1><center>Online Life insurance Portal (OLIP)</center></h1>
+
+<h3><center>visit our facebook page</center></h3>
+
+
+ <p style="margin-left:500px; margin-right:500px; color:#009; font-size:14px;"> "https://www.facebook.com/OLifeInsuranceP</p>
+ 
+ <h3><center>visit our twitter page</center></h3>
+
+
+ <p style="margin-left:500px; margin-right:500px; color:#009; font-size:14px;"> "https://twitter.com/OLifeInsuranceP</p>
+
+ 
+<h1><center>call us</center></h1>
+
+<p style="margin-left:500px; margin-right:500px;  color:#009; font-size:14px;">OLIP aims to deliver new ideas of customer solutions, owing to its wide-spread call centers accross the country. Its call center's staff are dedicated to performing their level best, equiped with all the training for a truly hassle free and quick customer service.The Company’s focus on its customer's satisfaction to 100%.</p>
+
+<p style="margin-left:500px; margin-right:500px;  color:#009; font-size:14px;">Call our 24 hour available help-line number in case of any queries 0900-65432</p> 
+
+
+
+
+
+
+
+
+<!--End working area  -->
+ </td> </tr>
+
+<tr> <td>   <?php include ('footer.php'); ?>  </td> </tr>
+
+
+
+
+
+</table>
+</div>
+</body>
+</html>
