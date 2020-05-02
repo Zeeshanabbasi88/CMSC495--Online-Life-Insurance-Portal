@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<body>
+<?PHP
+$path = "upload/";
+
+$name=$_FILES['uploadedfile']['name'];
+
+$file_type=$_FILES['uploadedfile']['type'];
+
+
+
+$aa = $path . basename( $_FILES['uploadedfile']['name']); 
+
+//if( $file_type=="image/gif" || $file_type=="image/jpeg"){
+
+     
+if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $aa)) { 
+    echo "The file has been uploaded";
+} else{
+    echo "There was an error uploading the file, please try again!";
+}
+$claimstatus='due';
+ $start_date=date('d/m/Y');
+
+
+ $Fname=$_POST['Fname'];
+ $Lname=$_POST['Lname'];
+ $NIC=$_POST['NIC'];
+  $mobileNumber=$_POST['mobileNumber'];
+ $Address=$_POST['Address'];
+ $city=$_POST['city'];
+ $occupation=$_POST['occupation'];
+ $DOB=$_POST['DOB'];
+ $Email=$_POST['Email'];
+ $password=$_POST['password'];
+ $gender=$_POST['gender'];
+ $status=$_POST['status'];
+ $salary=$_POST['salary'];
+ $policynum=$_POST['policynum'];
+ 
+ $nomineeFName=$_POST['nomineeFName'];
+$nomineeLName=$_POST['nomineeLName'];
+$nomineePhoneM=$_POST['nomineePhoneM'];
+$nomineePhoneL=$_POST['nomineePhoneL'];
+$nomineeNIC=$_POST['nomineeNIC'];
+$nomineeAddress=$_POST['nomineeAddress'];
+$nomineeRelation=$_POST['nomineeRelation'];
+ 
+ session_start();
+ $_SESSION['REGISTER']=$Email;
+
+
+$connection=mysql_connect("localhost","root","");
+$dbselect=mysql_select_db("userregisteration",$connection);
+if($dbselect)
+{
+	echo "Database is connected";
+}
+else if(!$dbselect)
+{   echo "DB is not connected successfully";
+	
+}
+$sel=mysql_query("select * from policies where PolicyNumber='$policynum'");
+while($rows=mysql_fetch_array($sel))
+{$PolicyName=$rows['PolicyName'];
+ $PolicyNumber=$rows['PolicyNumber'];
+ $totalDuration=$rows['totalDuration'];
+ $premiumType=$rows['premiumType'];
+ $TotalAmount=$rows['TotalAmount'];
+ $benefitNo1=$rows['benefitNo1'];
+ $benefitNo2=$rows['benefitNo2'];
+ $benefitNo3=$rows['benefitNo3'];
+ $premium=$rows['premium'];
+ $No_of_payments=$rows['No_of_payments'];
+}
+if(!$sel)
+{
+echo ("data not fetched from policies");
+}
+else{
+	 $add=mysql_query("insert into register(Fname,Lname,NIC,mobileNumber,Address,city,occupation,DOB,Email,password,gender,status,picture,start_date) values ('$Fname','$Lname','$NIC','$mobileNumber','$Address','$city','$occupation','$DOB','$Email','$password','$gender','$status','$name','$start_date')"); 
+	 
+	 if(!$add){
+		
+		
+		echo " sorry, error in your input.. data not entered in register ";
+			}
+			else{
+
+{     $add1=mysql_query("insert into claim( Email,claimstatus,amount) values ('$Email','$claimstatus','$TotalAmount')");
+			
+			if(!$add1){
+		
+		
+		echo " sorry, error in your input.. data not entered in claim ";
+			}
+			else{
+				
+				$add3=mysql_query("insert into purchase(salary,policyName,totalAmount,premiumType,duration,Email,premium,PolicyNumber,remaining_payments) values ('$salary','$PolicyName','$TotalAmount','$premiumType','$totalDuration','$Email','$premium','$PolicyNumber','$No_of_payments')");
+				
+			if(!$add3){
+		
+		
+		echo " sorry, error in your input.. data not entered in purchase ";
+			}
+			else{
+				
+				
+ $qry=mysql_query("insert into  nominee (Email,nomineeFName,nomineeLName,nomineePhoneM,nomineePhoneL,nomineeNIC,nomineeAddress,nomineeRelation) values ('$Email','$nomineeFName','$nomineeLName','$nomineePhoneM','$nomineePhoneL','$nomineeNIC','$nomineeAddress','$nomineeRelation') ");
+if(!$qry)
+{
+	echo "error.. data not entered in Nominee";
+	}
+	
+	else{
+	
+$username = 'zeeshan';
+$password = '123456789';
+$to = $mobileNumber;
+$from ='SMS Alert';
+$message = 'dear '.$Fname.' u have registered successfully.kindly wait for the admin approval message for further assistance';
+$url = "http://lifetimesms.com/plain?username=".$username."&password=".$password.
+"&to=".$to."&from=".urlencode($from)."&message=".urlencode($message)." ";
+//Curl Start
+$ch  =  curl_init();
+$timeout  =  30;
+curl_setopt ($ch,CURLOPT_URL, $url) ;
+curl_setopt ($ch,CURLOPT_RETURNTRANSFER, 1);
+curl_setopt ($ch,CURLOPT_CONNECTTIMEOUT, $timeout) ;
+$response = curl_exec($ch) ;
+curl_close($ch) ; 
+//Write out the response
+echo $response ;
+
+$username = 'zeeshan';
+$password = '123456789';
+$to = $nomineePhoneM;
+$from ='SMS Alert';
+$message = 'dear user you have been nominated for policy successfully by '.$Fname;
+$url = "http://lifetimesms.com/plain?username=".$username."&password=".$password.
+"&to=".$to."&from=".urlencode($from)."&message=".urlencode($message)." ";
+//Curl Start
+$ch  =  curl_init();
+$timeout  =  30;
+curl_setopt ($ch,CURLOPT_URL, $url) ;
+curl_setopt ($ch,CURLOPT_RETURNTRANSFER, 1);
+curl_setopt ($ch,CURLOPT_CONNECTTIMEOUT, $timeout) ;
+$response = curl_exec($ch) ;
+curl_close($ch) ; 
+//Write out the response
+echo $response ;
+ header("location:success.php");
+	
+}
+}
+}}}}
+?>
+</body>
+</html>
