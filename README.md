@@ -6,7 +6,7 @@ MAIN PURPOSE: The main purpose of this project is to provide a user friendly int
 All the important documentations are uploaded in "Documentation" folder which includes : Project requirement, project plan, project analysis, project design, project testing and user guide.
 
 Code is uploaded which includes only few section of the website yet, due to time limit only one part (user )of website is developed using PHP, MySQL, HTML, CSS and Apache.
-Basic platform to run code is Visual Studio.
+Basic platform to run code is Notepad++.
 -----------------------------------------------------------------------------------------------------------------------
 Hardware and software requirements to run OLIP Project:
 o	Browser such as Google chrome is required
