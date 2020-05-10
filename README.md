@@ -14,7 +14,7 @@ o	Apache
 o	PHP
 o	MySQL
 o	Apache, PHP and MySQL can be installed together with Xampp for windows.
-o	Visual studio
+o	Notepad++
 o	CPU: 1 GHz processor
 o	RAM: 2GB RAM (64-bit)
 o	Storage must be high so at least 20GB storage
