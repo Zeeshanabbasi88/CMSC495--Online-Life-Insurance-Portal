@@ -1,0 +1,449 @@
+-- phpMyAdmin SQL Dump
+-- version 3.3.9
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Sep 11, 2015 at 10:32 AM
+-- Server version: 5.5.8
+-- PHP Version: 5.3.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `userregisteration`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `adminlogin`
+--
+
+CREATE TABLE IF NOT EXISTS `adminlogin` (
+  `name` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `mobileNumber` varchar(50) NOT NULL,
+  `Password` varchar(50) NOT NULL,
+  `adminID` int(4) NOT NULL AUTO_INCREMENT,
+  `picture` varchar(200) NOT NULL,
+  PRIMARY KEY (`adminID`),
+  UNIQUE KEY `Email` (`Email`),
+  UNIQUE KEY `Email_2` (`Email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `adminlogin`
+--
+
+INSERT INTO `adminlogin` (`name`, `Email`, `mobileNumber`, `Password`, `adminID`, `picture`) VALUES
+('Ali', 'ali@yahoo.com', '03004569852', 'ali123', 3, '11210490_880483578665818_7867359157610407913_n.png'),
+('Alisha', 'alisha@yahoo.com', '0300456960', 'alisha', 4, ''),
+('ishaal', 'ishaal@yahoo.com', '03225486258', 'ishaal', 8, '1.PNG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `agent`
+--
+
+CREATE TABLE IF NOT EXISTS `agent` (
+  `AgentFirstName` varchar(50) NOT NULL,
+  `AgentLastName` varchar(50) NOT NULL,
+  `AgentEmail` varchar(50) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `AgentPhone` varchar(15) NOT NULL,
+  `photo` varchar(200) NOT NULL,
+  `agentID` int(11) NOT NULL AUTO_INCREMENT,
+  `designation` varchar(50) NOT NULL,
+  PRIMARY KEY (`agentID`),
+  UNIQUE KEY `AgentEmail` (`AgentEmail`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `agent`
+--
+
+INSERT INTO `agent` (`AgentFirstName`, `AgentLastName`, `AgentEmail`, `city`, `AgentPhone`, `photo`, `agentID`, `designation`) VALUES
+('amina', 'aiman', 'amna122@yahoo.com', 'Islamabad', '0325656565', '1.PNG', 1, 'agent'),
+('akram', 'aleem', 'akram@gmail.com', 'Lahore', '03456254565', 'Aviary Stock Photo 3.png', 2, 'agent'),
+('inaam', 'Ullah', 'inam@yahoo.com', 'Karachi', '03004563256', 'Aviary Stock Photo 2.png', 3, 'agent'),
+('babar', 'hussain', 'babarhussain2@gmail.com', 'Quetta', '3792399238230', '', 4, 'agent');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `approvedusers`
+--
+
+CREATE TABLE IF NOT EXISTS `approvedusers` (
+  `Email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `approvedusers`
+--
+
+INSERT INTO `approvedusers` (`Email`, `password`) VALUES
+('amjad@yahoo.com', 'amjad'),
+('asdfastrezah.iftikhar@gmail.com', '3333'),
+('babar11@gmail.com', 'baber'),
+('DFSF', '123456'),
+('iftikhar@gmail.com', '123'),
+('khar@gmail.com', 'asdf'),
+('sadia111@gmail.com', 'sadi'),
+('sadia11@gmail.com', 'sadi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `claim`
+--
+
+CREATE TABLE IF NOT EXISTS `claim` (
+  `claimID` int(50) NOT NULL AUTO_INCREMENT,
+  `Email` varchar(50) NOT NULL,
+  `DueDate` date NOT NULL,
+  `Claimstatus` varchar(50) NOT NULL,
+  `amount` int(50) NOT NULL,
+  `recievedBy` varchar(50) NOT NULL,
+  `recieveCondition` varchar(50) NOT NULL,
+  `recievedOn` date NOT NULL,
+  PRIMARY KEY (`claimID`),
+  UNIQUE KEY `Email` (`Email`),
+  KEY `claimID` (`claimID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
+
+--
+-- Dumping data for table `claim`
+--
+
+INSERT INTO `claim` (`claimID`, `Email`, `DueDate`, `Claimstatus`, `amount`, `recievedBy`, `recieveCondition`, `recievedOn`) VALUES
+(28, 'sadia111@gmail.com', '0000-00-00', 'due', 1000000, '', '', '0000-00-00'),
+(33, 'khar@gmail.com', '0000-00-00', 'due', 0, '', '', '0000-00-00'),
+(34, 'DFSF', '0000-00-00', 'due', 1000000, '', '', '0000-00-00'),
+(35, 'DFSFLMLM', '0000-00-00', 'due', 1000000, '', '', '0000-00-00'),
+(36, 'amjad@yahoo.com', '0000-00-00', 'due', 100000, '', '', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `communication`
+--
+
+CREATE TABLE IF NOT EXISTS `communication` (
+  `adminID` int(20) NOT NULL,
+  `message` varchar(100) NOT NULL,
+  `PolicyNumber` int(20) NOT NULL,
+  `Username` varchar(50) NOT NULL,
+  `sentDate` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `communication`
+--
+
+INSERT INTO `communication` (`adminID`, `message`, `PolicyNumber`, `Username`, `sentDate`) VALUES
+(1, '   kxnknknfvzldskn', 1, '', '2015-07-29'),
+(1, '   kxnknknfvzldskn', 1, '', '2015-07-29'),
+(1, '   hello', 2, 'alia', '2015-08-03'),
+(1, '   hello', 2, 'sadia', '2015-08-03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `duration`
+--
+
+CREATE TABLE IF NOT EXISTS `duration` (
+  `years` int(10) NOT NULL,
+  `years_in_words` varchar(50) NOT NULL,
+  UNIQUE KEY `years` (`years`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `duration`
+--
+
+INSERT INTO `duration` (`years`, `years_in_words`) VALUES
+(5, 'five years'),
+(10, 'ten years'),
+(25, 'twenty five years'),
+(30, 'thirty years'),
+(35, 'thirty five  years'),
+(60, 'sixty years');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `endedpolicies`
+--
+
+CREATE TABLE IF NOT EXISTS `endedpolicies` (
+  `userID` varchar(5) NOT NULL,
+  `start_date` date NOT NULL,
+  `Fname` varchar(150) NOT NULL,
+  `Lname` varchar(150) NOT NULL,
+  `Email` varchar(150) NOT NULL,
+  `NIC` varchar(150) NOT NULL,
+  `claimID` varchar(200) NOT NULL,
+  `recievedOn` date NOT NULL,
+  `recievedBy` varchar(150) NOT NULL,
+  `amount` varchar(50) NOT NULL,
+  UNIQUE KEY `userID` (`userID`),
+  UNIQUE KEY `Email` (`Email`),
+  UNIQUE KEY `claimID` (`claimID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `endedpolicies`
+--
+
+INSERT INTO `endedpolicies` (`userID`, `start_date`, `Fname`, `Lname`, `Email`, `NIC`, `claimID`, `recievedOn`, `recievedBy`, `amount`) VALUES
+('62', '0000-00-00', 'Bakhtavar ', 'safdar', 'bakhtavar.safdar@gmail.com', '3320157885467', '27', '0000-00-00', 'sadia', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lapsusers`
+--
+
+CREATE TABLE IF NOT EXISTS `lapsusers` (
+  `Email` varchar(50) NOT NULL,
+  `LastPaymentyear` varchar(5) NOT NULL,
+  `LastPaymentMonth` varchar(15) NOT NULL,
+  `Fine` int(15) NOT NULL,
+  `PolicyStatus` varchar(20) NOT NULL,
+  `premiumType` varchar(10) NOT NULL,
+  UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lapsusers`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nominee`
+--
+
+CREATE TABLE IF NOT EXISTS `nominee` (
+  `Email` varchar(150) NOT NULL,
+  `nomineeFname` varchar(150) NOT NULL,
+  `nomineeLname` varchar(150) NOT NULL,
+  `nomineePhoneM` varchar(150) NOT NULL,
+  `nomineePhoneL` varchar(150) NOT NULL,
+  `nomineeNIC` varchar(150) NOT NULL,
+  `nomineeAddress` varchar(150) NOT NULL,
+  `nomineeRelation` varchar(150) NOT NULL,
+  UNIQUE KEY `Email` (`Email`),
+  UNIQUE KEY `nomineeNIC` (`nomineeNIC`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nominee`
+--
+
+INSERT INTO `nominee` (`Email`, `nomineeFname`, `nomineeLname`, `nomineePhoneM`, `nomineePhoneL`, `nomineeNIC`, `nomineeAddress`, `nomineeRelation`) VALUES
+('amjad@yahoo.com', 'pizza', 'iftikhar', '03004446097', '04235152894', '35202559565655', '  kjdsh', 'sister'),
+('DFSF', 'RWETER', 'EWTREWT', '34634', '435342', '4356435', '  4326 DFHDFH', 'TRH'),
+('DFSFLMLM', 'RWETER', 'EWTREWT', '34634', '435342', '43564356216', '  4326 DFHDFH', 'TRH'),
+('khar@gmail.com', 'trezah', 'iftikhar', '03004446097', '04236549875', '243434347', 'asd  ', 'sister'),
+('sadia111@gmail.com', 'bakhtavar', 'safdar', '03084190059', '04235465454', '321321621321', '  mnmnmn', 'sister');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paymants`
+--
+
+CREATE TABLE IF NOT EXISTS `paymants` (
+  `Email` varchar(50) NOT NULL,
+  `Paypall_ID` int(20) NOT NULL,
+  `PaypallPassword` varchar(50) NOT NULL,
+  `paymentMonth` varchar(15) NOT NULL,
+  `premiumAmount` int(11) NOT NULL,
+  `premiumType` varchar(11) NOT NULL,
+  `paymentDate` date NOT NULL,
+  `paymentYear` year(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `paymants`
+--
+
+INSERT INTO `paymants` (`Email`, `Paypall_ID`, `PaypallPassword`, `paymentMonth`, `premiumAmount`, `premiumType`, `paymentDate`, `paymentYear`) VALUES
+('minsa@gmail.com', 1, 'jhihih', 'september', 833, 'monthly', '2015-09-02', 2015),
+('minsa@gmail.com', 1, 'jhihih', 'september', 833, 'monthly', '2015-09-02', 2015),
+('minsa@gmail.com', 1, 'jhihih', 'july', 833, 'monthly', '2015-07-31', 2015),
+('minsa@gmail.com', 1, 'jhihih', 'july', 833, 'monthly', '2015-07-31', 2015),
+('sadia11@gmail.com', 1, 'jhihih', 'august', 3333, 'monthly', '2015-08-03', 2015),
+('sadia11@gmail.com', 1, 'jhihih', 'august', 3333, 'monthly', '2015-08-03', 2015),
+('amjad@yahoo.com', 1, 'jhihih', 'august', 833, 'monthly', '2015-08-07', 2015);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paypall`
+--
+
+CREATE TABLE IF NOT EXISTS `paypall` (
+  `userID` int(50) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `mobileNumber` varchar(15) NOT NULL,
+  `amount` int(15) NOT NULL,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `paypall`
+--
+
+INSERT INTO `paypall` (`userID`, `name`, `Email`, `password`, `mobileNumber`, `amount`) VALUES
+(1, 'sadia', 'sadia@gmail.com', 'jhihih', ' 03004422654', 25896);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `policies`
+--
+
+CREATE TABLE IF NOT EXISTS `policies` (
+  `PolicyName` varchar(50) NOT NULL,
+  `PolicyNumber` int(50) NOT NULL AUTO_INCREMENT,
+  `totalDuration` int(50) NOT NULL,
+  `premiumType` varchar(50) NOT NULL,
+  `TotalAmount` int(20) NOT NULL,
+  `benefitNo1` varchar(50) NOT NULL,
+  `benefitNo2` varchar(50) NOT NULL,
+  `benefitNo3` varchar(50) NOT NULL,
+  `premium` int(50) NOT NULL,
+  `No_of_payments` varchar(5) NOT NULL,
+  PRIMARY KEY (`PolicyNumber`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `policies`
+--
+
+INSERT INTO `policies` (`PolicyName`, `PolicyNumber`, `totalDuration`, `premiumType`, `TotalAmount`, `benefitNo1`, `benefitNo2`, `benefitNo3`, `premium`, `No_of_payments`) VALUES
+('study plan', 1, 10, 'monthly', 100000, 'educational fund coverage', 'life time cover', 'total amount return on meturity amount', 833, '120'),
+('marriageplan', 2, 25, 'monthly', 1000000, 'small monthly installment', 'total amount return on maturity claim', 'perfect for saving', 3333, '300'),
+('savingsPlan', 3, 30, 'yearly', 1000000, 'easy annual installments', 'full accidental coverage', 'life time saving guaranteed', 33333, '30'),
+('retirement plan', 4, 35, 'yearly', 1000000, 'once in a year installment', 'great benefits , with great saving', 'easy online payment method', 28571, '35'),
+('joint insurance Plan', 5, 30, 'monthly', 1000000, 'small monthly installment', 'life time cover', 'full amount return on metureity', 2778, '360'),
+('child insurance Plan', 6, 30, 'monthly', 1000000, 'secure plan for saving', 'best for your child secure future', 'full amount return on metureity', 2778, '360');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchase`
+--
+
+CREATE TABLE IF NOT EXISTS `purchase` (
+  `salary` varchar(15) NOT NULL,
+  `policyName` varchar(50) NOT NULL,
+  `totalAmount` varchar(200) NOT NULL,
+  `premiumType` varchar(15) NOT NULL,
+  `duration` varchar(10) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `premium` varchar(20) NOT NULL,
+  `PolicyNumber` int(50) NOT NULL,
+  `LastpaymentMonth` varchar(20) NOT NULL,
+  `paymentYear` varchar(5) NOT NULL,
+  `remaining_payments` varchar(5) NOT NULL,
+  UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`salary`, `policyName`, `totalAmount`, `premiumType`, `duration`, `Email`, `premium`, `PolicyNumber`, `LastpaymentMonth`, `paymentYear`, `remaining_payments`) VALUES
+('25000', 'study plan', '100000', 'monthly', '10', 'aaaaatrezah.iftikhar@gmail.com', '833', 1, '', '', '120'),
+('25000', 'study plan', '100000', 'monthly', '10', 'aatrezah.iftikhar@gmail.com', '833', 1, '', '', '120'),
+('200000', 'marriageplan', '1000000', 'monthly', '25', 'ahmad@yahoo.com', '3333', 2, '', '', '300'),
+('200000', 'marriageplan', '1000000', 'monthly', '25', 'ali@yahoo.com', '3333', 2, '', '', '300'),
+('25000', 'marriageplan', '1000000', 'monthly', '25', 'alia@yahoo.com', '3333', 2, 'august', '2015', ''),
+('25000000', 'study plan', '100000', 'monthly', '10', 'amjad@yahoo.com', '833', 1, 'august', '2015', '119'),
+('50000', 'marriageplan', '1000000', 'monthly', '25', 'babar11@gmail.com', '3333', 2, '', '', '300'),
+('50000', 'child insurance Plan', '1000000', 'monthly', '30', 'babar@gmail.com', '2778', 6, '', '', '360'),
+('0', 'retirement plan', '1000000', 'yearly', '35', 'DFSF', '28571', 4, '', '', '35'),
+('0', 'retirement plan', '1000000', 'yearly', '35', 'DFSFLMLM', '28571', 4, '', '', '35'),
+('30000', 'child insurance Plan', '1000000', 'monthly', '30', 'iftikhar@gmail.com', '2778', 6, 'august', '2015', ''),
+('30000', '', '', '', '', 'khar@gmail.com', '', 0, '', '', ''),
+('25000', 'marriageplan', '1000000', 'monthly', '25', 'sadia111@gmail.com', '3333', 2, '', '', '300'),
+('20000000', 'study plan', '100000', 'monthly', '10', 'trezah.iftikhar123@gmail.com', '833', 1, '', '', '120'),
+('20000000', 'study plan', '100000', 'monthly', '10', 'trezah.iftikhar165@gmail.com', '833', 1, '', '', '120');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `register`
+--
+
+CREATE TABLE IF NOT EXISTS `register` (
+  `Fname` varchar(50) NOT NULL,
+  `Lname` varchar(50) NOT NULL,
+  `NIC` varchar(15) NOT NULL,
+  `mobileNumber` varchar(12) NOT NULL,
+  `Address` varchar(100) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `occupation` varchar(50) NOT NULL,
+  `DOB` date NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `gender` text NOT NULL,
+  `status` text NOT NULL,
+  `userID` int(100) NOT NULL AUTO_INCREMENT,
+  `picture` varchar(200) NOT NULL,
+  `user_status` varchar(222) NOT NULL,
+  `start_date` varchar(255) NOT NULL,
+  `end_date` date NOT NULL,
+  PRIMARY KEY (`userID`),
+  UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=77 ;
+
+--
+-- Dumping data for table `register`
+--
+
+INSERT INTO `register` (`Fname`, `Lname`, `NIC`, `mobileNumber`, `Address`, `city`, `occupation`, `DOB`, `Email`, `password`, `gender`, `status`, `userID`, `picture`, `user_status`, `start_date`, `end_date`) VALUES
+('sadia', 'inam', '31312132132', '03004446097', '  n,nfe,mnmnm', 'Islamabad', 'teacher', '1992-09-12', 'sadia111@gmail.com', 'sadi', 'female', 'single', 63, '11737965_869639133133847_3392271708340075689_n.jpg', 'approved', '05/08/2015', '0000-00-00'),
+('nabeel', 'ikram', '3423423423', '03017169678', '  asdf', 'Karachi', 'teacher', '2014-11-30', 'khar@gmail.com', 'asdf', 'male', 'married', 73, '3.PNG', 'approved', '05/08/2015', '0000-00-00'),
+('Suhail', 'xyz', '352001492548', '03238482186', 'rftewTW  ', 'Lahore', 'ETF', '2089-12-31', 'DFSF', '123456', 'male', 'married', 74, '1604746_489680287815355_515530229_n.jpg', 'approved', '06/08/2015', '2050-08-06'),
+('Suhail', 'xyz', '352001492548541', '03238482186', 'rftewTW  ', 'Lahore', 'ETF', '2089-12-31', 'DFSFLMLM', '1234', 'male', 'married', 75, '1604746_489680287815355_515530229_n.jpg', '', '06/08/2015', '2050-08-06'),
+('amjad', 'hussain', '3520296210893', '03004284001', '  ndsjnj', 'Lahore', 'teacher', '1960-12-12', 'amjad@yahoo.com', 'amjad', 'male', 'married', 76, '189264_10151034538251540_414587415_n.jpg', 'approved', '07/08/2015', '2025-08-07');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suminsured`
+--
+
+CREATE TABLE IF NOT EXISTS `suminsured` (
+  `amount` int(10) NOT NULL,
+  `amountInWords` varchar(50) NOT NULL,
+  UNIQUE KEY `amount` (`amount`),
+  UNIQUE KEY `amountInWords` (`amountInWords`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `suminsured`
+--
+
+INSERT INTO `suminsured` (`amount`, `amountInWords`) VALUES
+(50000, 'fifty thousand'),
+(100000, 'one lack'),
+(1000000, 'ten lack');
